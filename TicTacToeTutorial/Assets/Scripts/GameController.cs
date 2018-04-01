@@ -9,18 +9,19 @@ public class Player{
 	public Image panel;
 	public Text text;
 	public Button button;
+	public Image playerImage;
 }
 
 [System.Serializable]
 public class PlayerColor{
 
 	public Color panelColor;
-	public Color textColor;
 }
 
 public class GameController : MonoBehaviour {
 
 	public Text[] buttonList;
+	public Image[] buttonImageList;
 	public GameObject gameOverPanel;
 	public Text gameOverText;
 	public GameObject restartButton;
@@ -117,9 +118,7 @@ public class GameController : MonoBehaviour {
 	void SetPlayerColors (Player newPlayer, Player oldPlayer)
 	{
 		newPlayer.panel.color = activePlayerColor.panelColor;
-		newPlayer.text.color = activePlayerColor.textColor;
 		oldPlayer.panel.color = inactivePlayerColor.panelColor;
-		oldPlayer.text.color = inactivePlayerColor.textColor;
 	}
 
 	void GameOver(string winningPlayer)
@@ -155,6 +154,11 @@ public class GameController : MonoBehaviour {
 		{
 			buttonList [i].text = "";
 		}
+
+		for (int i = 0; i < buttonImageList.Length; i++) 
+		{
+			buttonImageList [i].enabled = false;
+		}
 	}
 
 	void SetBoardInteractable (bool toggle)
@@ -174,8 +178,6 @@ public class GameController : MonoBehaviour {
 	void SetPlayerColorsInactive()
 	{
 		playerX.panel.color = inactivePlayerColor.panelColor;
-		playerX.text.color = inactivePlayerColor.textColor;
 		playerO.panel.color = inactivePlayerColor.panelColor;
-		playerO.text.color = inactivePlayerColor.textColor;
 	}
 }
