@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Player{
@@ -30,8 +31,9 @@ public class GameController : MonoBehaviour {
 	public PlayerColor activePlayerColor;
 	public PlayerColor inactivePlayerColor;
 	public GameObject startInfo;
+    //public int LoadLevel;
 
-	private string playerSide;
+    private string playerSide;
 	private int moveCount;
 
 	void Awake()
@@ -180,4 +182,16 @@ public class GameController : MonoBehaviour {
 		playerX.panel.color = inactivePlayerColor.panelColor;
 		playerO.panel.color = inactivePlayerColor.panelColor;
 	}
+
+
+   
+
+   public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+
+
+
 }
