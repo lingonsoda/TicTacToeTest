@@ -132,14 +132,17 @@ public class GameController : MonoBehaviour {
 		SetBoardInteractable (false);
 		if (winningPlayer == "draw") {
 			gameOverText.alignment = TextAnchor.MiddleCenter;
+			gameOverText.fontSize = 43;
 			SetGameOverText ("It's a Draw!");
 			SetPlayerColorsInactive ();
 		} else if (winningPlayer == "X") {
 			gameOverText.alignment = TextAnchor.MiddleRight;
+			gameOverText.fontSize = 75;
 			SetGameOverText ("Wins!");
 			gameOverSaturn.enabled = true;
 		} else {
 			gameOverText.alignment = TextAnchor.MiddleRight;
+			gameOverText.fontSize = 75;
 			SetGameOverText ("Wins!");
 			gameOverMoon.enabled = true;
 		}
