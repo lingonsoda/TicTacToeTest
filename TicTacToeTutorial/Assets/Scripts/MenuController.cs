@@ -18,11 +18,4 @@ public class MenuController: MonoBehaviour {
 	{
 		SceneManager.LoadScene("Main");
 	}
-
-    public void ExitApplication()
-    {
-        Application.Quit();
-    }
-
-
 }
