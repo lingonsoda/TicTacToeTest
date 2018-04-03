@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour {
 	public Image[] buttonImageList;
 	public GameObject gameOverPanel;
 	public Text gameOverText;
+	public Image gameOverSaturn;
+	public Image gameOverMoon;
 	public GameObject restartButton;
 	public Player playerX;
 	public Player playerO;
@@ -40,6 +42,8 @@ public class GameController : MonoBehaviour {
 	{
 		SetGameControllerReferenceOnButtons ();
 		gameOverPanel.SetActive (false);
+		gameOverSaturn.enabled = false;
+		gameOverMoon.enabled = false;
 		moveCount = 0;
 		restartButton.SetActive (false);
 	}
@@ -127,11 +131,17 @@ public class GameController : MonoBehaviour {
 	{
 		SetBoardInteractable (false);
 		if (winningPlayer == "draw") {
+			gameOverText.alignment = TextAnchor.MiddleCenter;
 			SetGameOverText ("It's a Draw!");
 			SetPlayerColorsInactive ();
-		} else 
-		{
-			SetGameOverText (winningPlayer + " Wins!");
+		} else if (winningPlayer == "X") {
+			gameOverText.alignment = TextAnchor.MiddleRight;
+			SetGameOverText ("Wins!");
+			gameOverSaturn.enabled = true;
+		} else {
+			gameOverText.alignment = TextAnchor.MiddleRight;
+			SetGameOverText ("Wins!");
+			gameOverMoon.enabled = true;
 		}
 		restartButton.SetActive (true);
 	}
@@ -147,6 +157,8 @@ public class GameController : MonoBehaviour {
 	{
 		moveCount = 0;
 		gameOverPanel.SetActive (false);
+		gameOverSaturn.enabled = false;
+		gameOverMoon.enabled = false;
 		restartButton.SetActive (false);
 		SetPlayerButtons (true);
 		SetPlayerColorsInactive ();
